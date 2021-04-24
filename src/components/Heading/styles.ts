@@ -14,7 +14,7 @@ const Heading = styled('h1').attrs<HeadingProps>(({ level }) => ({
   ${({ color = 'grey500', fontWeight = 700, fontSize = 'medium' }) => css`
     color: ${theme.colors[color]};
     font-weight: ${fontWeight};
-    font-size: ${theme.fontSizes[fontSize]};
+    font-size: ${theme.fontSizes[fontSize as keyof typeof theme.fontSizes]};
   `}
 `;
 

@@ -10,33 +10,33 @@ type MapViewport = {
 };
 
 type MaerkerPositionProps = {
-  latitude: number;
-  longitude: number;
+  markerLat: number;
+  markerLong: number;
 };
 
 const Map = () => {
   const [markerPosition, setMarkerPosition] = useState<MaerkerPositionProps>({
-    latitude: 0,
-    longitude: 0,
+    markerLat: 0,
+    markerLong: 0,
   });
   const [viewport, setViewport] = useState({
-    latitude: -23,
-    longitude: -52,
+    latitude: -11,
+    longitude: -59,
     width: '100%',
     height: 280,
-    zoom: 8,
+    zoom: 3,
   });
 
   const handleMapClick = (event: MapEvent) => {
     const [long, lat] = event.lngLat;
-    setMarkerPosition({ latitude: lat, longitude: long });
+    setMarkerPosition({ markerLat: lat, markerLong: long });
   };
 
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos: GeolocationPosition) => {
         const { latitude, longitude } = pos.coords;
-        setViewport({ ...viewport, latitude, longitude });
+        setViewport({ ...viewport, latitude, longitude, zoom: 13 });
       });
     }
   }, [viewport]);
@@ -52,8 +52,8 @@ const Map = () => {
       onClick={handleMapClick}
     >
       <Marker
-        latitude={markerPosition.latitude}
-        longitude={markerPosition.longitude}
+        latitude={markerPosition.markerLat}
+        longitude={markerPosition.markerLong}
       >
         <img src="pin.svg" alt="Marcador" />
       </Marker>

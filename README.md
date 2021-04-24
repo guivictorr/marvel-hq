@@ -1,5 +1,9 @@
-<h1 align='center'>Next Boilerplate</h1>
-<p align='center'>Apenas um template para me ajudar a iniciar alguns projetos mais rápido, pretendo atualizar com <b>Testes e Storybook</b></p>
+<h1 align='center'>🦸‍♂️ Marvel Hq</h1>
+<p align='center'>Projeto desenvolvido durante o teste técnico usando NextJS, fiz esse escolha pois além de ter experiência com NextJS, o framework é muito rápido e com o suporte de hospedagem da vercel se encaixa perfeitamente para uma aplicação muito veloz. No mapa eu preferi utilizar a ferramenta <a href="https://www.mapbox.com/">MapBox</a> para customizar o mapa pois já tinha experiência com a ferramenta e possui um ótimo plano grátis.</p>
+
+## 👋 Autor
+
+[Guilherme Victor (Github)](https://github.com/guivictorr)
 
 ## 🛠 Tecnologias
 
@@ -8,22 +12,34 @@
 - [Styled Components](styled-components.com/)
 - [NodeJS](https://nodejs.org/)
 - [Typescript](https://typescriptlang.org/)
+- [React Map GL](https://visgl.github.io/react-map-gl/)
 
 ## 📱💻 Instruções
 
+Supondo que você já possui o projeto baixado, e o [Node](https://nodejs.org) ou [Yarn](https://yarnpkg.com/) instalado, siga esses passos no seu terminal.
+
+❗ Para facilitar o teste vou disponibilizar no fim do README minhas chaves para as API's
+
 ```
-## Rodar o comando no seu terminal
-yarn create next-app nomedapasta -e https://github.com/guivictorr/next-boilerplate
-ou
-npx create-next-app nomedapasta -e https://github.com/guivictorr/next-boilerplate
+## Entrar na pasta
+cd marvel-hq
+
+## Instalar as dependências
+yarn ou npm install
+
+## Configurar as variáveis de ambiente no .env.local
+
+## Rodar o projeto
+yarn build ou npm run build
+yarn start ou npm run start
 ```
 
-## 🤔 Como contribuir
+## 🔑 Variáveis de ambiente
 
-- Faça um fork desse repositório;
-- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
-- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
-- Faça push para a sua branch: `git push origin minha-feature`.
+### Marvel API
 
-Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
- 
+NEXT_PUBLIC_API_KEY=ts=1&apikey=fa57f0352165b0d9d24ce9b062ad26e5&hash=e35137f4f0978f97ed2231eef735471f
+
+### Map Box API
+
+NEXT_PUBLIC_MAP_KEY=pk.eyJ1IjoiZ3VpbGhlcm1ldmljdG9yIiwiYSI6ImNrZzZ4NjZiMjAxdTEycW10bGhrdHRmbHIifQ.z9WlZyFBBV4RchwIg4UOXQ
