@@ -59,7 +59,7 @@ const Home = () => {
           <Wrapper maxWidth={50}>
             <Button
               title="Carregar mais"
-              visible={comics.count >= 1 && comics.count < 90}
+              visible={comics.count >= 18 && comics.count < 90}
               onClick={loadMore}
             />
           </Wrapper>
