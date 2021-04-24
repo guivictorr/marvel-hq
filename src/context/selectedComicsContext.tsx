@@ -6,6 +6,7 @@ type SelectedComicsProviderProps = {
 
 type SelectedComicsContextProps = {
   addComic(isChecked: boolean, comic: ComicProps): void;
+  clearSelected(): void;
   selectedComics: ComicProps[];
   isEmpty: boolean;
 };
@@ -31,9 +32,13 @@ const SelectedComicsProvider = ({ children }: SelectedComicsProviderProps) => {
     return selectedComics.length === 0;
   }, [selectedComics]);
 
+  const clearSelected = () => {
+    setSelectedComics([]);
+  };
+
   return (
     <SelectedComicsContext.Provider
-      value={{ isEmpty, addComic, selectedComics }}
+      value={{ isEmpty, addComic, selectedComics, clearSelected }}
     >
       {children}
     </SelectedComicsContext.Provider>
