@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
 type SelectedComicsProviderProps = {
   children: ReactNode;
@@ -7,6 +7,7 @@ type SelectedComicsProviderProps = {
 type SelectedComicsContextProps = {
   addComic(isChecked: boolean, comic: ComicProps): void;
   selectedComics: ComicProps[];
+  isEmpty: boolean;
 };
 
 const SelectedComicsContext = createContext({} as SelectedComicsContextProps);
@@ -20,13 +21,20 @@ const SelectedComicsProvider = ({ children }: SelectedComicsProviderProps) => {
         selectedComic => selectedComic.id === comic.id,
       );
       selectedComics.splice(selectedIndex, 1);
+      setSelectedComics([...selectedComics]);
     } else {
       setSelectedComics([...selectedComics, comic]);
     }
   };
 
+  const isEmpty = useMemo(() => {
+    return selectedComics.length === 0;
+  }, [selectedComics]);
+
   return (
-    <SelectedComicsContext.Provider value={{ addComic, selectedComics }}>
+    <SelectedComicsContext.Provider
+      value={{ isEmpty, addComic, selectedComics }}
+    >
       {children}
     </SelectedComicsContext.Provider>
   );
