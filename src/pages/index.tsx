@@ -11,11 +11,13 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Details from '../components/Details';
 
-import * as F from '../styles/pages/home';
+import * as H from '../styles/pages/home';
 import { useModal } from '../context/modalContext';
+import { useSelectedComics } from '../context/selectedComicsContext';
 
 const Home = () => {
   const { comics, loadMore, fetchComics, error } = useComics();
+  const { isEmpty } = useSelectedComics();
   const { modalIsOpen } = useModal();
   const [inputText, setInputText] = useState('');
 
@@ -33,10 +35,10 @@ const Home = () => {
   };
 
   return (
-    <F.Container>
-      <Header />
+    <H.Container>
+      <Header btnRoute="/checkout" btnText="Eviar-me" btnVisible={!isEmpty} />
       <Wrapper maxWidth={160}>
-        <F.Content>
+        <H.Content>
           <Input
             btnAction={getDataByInput}
             onChange={getInputText}
@@ -61,10 +63,10 @@ const Home = () => {
               onClick={loadMore}
             />
           </Wrapper>
-        </F.Content>
+        </H.Content>
       </Wrapper>
       <Details visible={modalIsOpen} />
-    </F.Container>
+    </H.Container>
   );
 };
 
