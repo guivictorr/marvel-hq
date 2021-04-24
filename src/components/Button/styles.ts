@@ -22,6 +22,12 @@ const Container = styled.button<ButtonStyleProps>`
     filter: brightness(0.8);
   }
 
+  &:disabled {
+    background: ${({ theme }) => theme.colors.grey300};
+    filter: brightness(1);
+    cursor: default;
+  }
+
   ${({ outlined, theme }) =>
     outlined
       ? css`
