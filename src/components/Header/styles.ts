@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.header`
   display: flex;
@@ -18,5 +18,49 @@ export const Content = styled.div`
   img {
     width: 75px;
     height: 30px;
+  }
+
+  a {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    transform: skew(-20deg);
+    height: 100%;
+    width: 15rem;
+    overflow: hidden;
+    position: relative;
+
+    p {
+      transition: all 0.4s ease-in-out;
+    }
+
+    &:before {
+      transition: all 0.4s ease-in-out;
+
+      content: 'Agora!';
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      left: 100%;
+      color: red;
+    }
+
+    &:hover {
+      p {
+        transform: translateX(-150%);
+        opacity: 0;
+      }
+
+      &:before {
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+    ${({ theme }) => css`
+      background: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      font-size: ${theme.fontSizes.medium16};
+    `}
   }
 `;
