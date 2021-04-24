@@ -3,7 +3,7 @@ import Button from '../Button';
 import Heading from '../Heading/styles';
 import { useModal } from '../../context/modalContext';
 import { useSelectedComics } from '../../context/selectedComicsContext';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 
 type CardProps = {
   comic: ComicProps;
@@ -11,12 +11,15 @@ type CardProps = {
 
 const Card = ({ comic }: CardProps) => {
   const { openModal } = useModal();
-  const { addComic } = useSelectedComics();
+  const { addComic, selectedComics } = useSelectedComics();
   const imageURL = `${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`;
-
   const getInputCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
     addComic(event.target.checked, comic);
   };
+
+  const isSelected = selectedComics.some(
+    selectedComic => selectedComic.id === comic.id,
+  );
 
   return (
     <C.Container>
@@ -25,6 +28,7 @@ const Card = ({ comic }: CardProps) => {
           hidden
           onChange={getInputCheckbox}
           type="checkbox"
+          defaultChecked={isSelected}
           name={String(comic.id)}
           id={String(comic.id)}
         />
@@ -40,4 +44,4 @@ const Card = ({ comic }: CardProps) => {
   );
 };
 
-export default Card;
+export default memo(Card);
