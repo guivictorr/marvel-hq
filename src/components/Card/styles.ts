@@ -15,14 +15,15 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   height: 100%;
 
   label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
+    height: 100%;
     text-align: center;
   }
 
@@ -31,7 +32,7 @@ export const Content = styled.div`
   }
 
   h1 {
-    margin-top: 10px;
+    margin: 10px auto;
   }
 
   img {
@@ -44,6 +45,5 @@ export const Content = styled.div`
   button {
     height: 32px;
     font-size: ${({ theme }) => theme.fontSizes.xsmall12};
-    margin-top: 15px;
   }
 `;

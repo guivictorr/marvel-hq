@@ -19,7 +19,7 @@ const useComics = () => {
 
   const fetchComics = async (name: string, limit = 18) => {
     const result = await fetchJson<DataProps>(
-      `https://gateway.marvel.com:443/v1/public/comics?title=${name}&orderBy=title&limit=${limit}&${process.env.NEXT_PUBLIC_API_KEY}
+      `https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${name}&orderBy=title&limit=${limit}&${process.env.NEXT_PUBLIC_API_KEY}
           `,
     );
 
