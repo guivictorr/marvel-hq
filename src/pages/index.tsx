@@ -36,7 +36,7 @@ const Home = () => {
 
   return (
     <H.Container>
-      <Header btnRoute="/checkout" btnText="Eviar-me" btnVisible={!isEmpty} />
+      <Header btnRoute="/checkout" btnText="Enviar-me" btnVisible={!isEmpty} />
       <Wrapper maxWidth={160}>
         <H.Content>
           <Input
@@ -48,7 +48,7 @@ const Home = () => {
 
           <Error visible={Boolean(error)}>{error}</Error>
 
-          <Grid columns={6}>
+          <Grid>
             {comics.results ? (
               comics.results.map(comic => <Card key={comic.id} comic={comic} />)
             ) : (

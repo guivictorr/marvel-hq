@@ -5,6 +5,9 @@ export const Container = styled.header`
   width: 100%;
   height: 50px;
   background-color: ${({ theme }) => theme.colors.primary};
+  position: fixed;
+  top: 0;
+  z-index: 99;
 `;
 
 export const Content = styled.div`

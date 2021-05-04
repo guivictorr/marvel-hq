@@ -50,6 +50,7 @@ const Map = () => {
         setViewport(viewport);
       }}
       onClick={handleMapClick}
+      width="100%"
     >
       <Marker
         latitude={markerPosition.markerLat}

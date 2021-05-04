@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100%;
 `;
@@ -21,5 +22,23 @@ export const Content = styled.main`
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.grey200};
     margin-top: 15px;
+  }
+
+  @media (max-width: 1040px) {
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+    padding-top: 100px;
+  }
+
+  @media (max-width: 465px) {
+    ul {
+      display: none;
+    }
+
+    button {
+      margin-top: 50px;
+    }
   }
 `;
