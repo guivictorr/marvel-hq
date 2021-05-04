@@ -18,22 +18,22 @@ const useComics = () => {
   };
 
   const fetchComics = async (name: string, limit = 18) => {
-    const result = await fetchJson<DataProps>(
+    const { data } = await fetchJson<DataProps>(
       `https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${name}&orderBy=title&limit=${limit}&${process.env.NEXT_PUBLIC_API_KEY}
           `,
     );
 
-    if (name.length === 0) {
+    if (!name.length) {
       setError('Você precisa digitar o nome do quadrinho');
       return;
     }
 
-    if (result.data.count === 0) {
+    if (!data.count) {
       setError('Não encontrei esse quadrinho');
       return;
     }
 
-    setComics({ ...result.data });
+    setComics({ ...comics, ...data });
     setCurrentSearch(name);
     setError('');
   };
