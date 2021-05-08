@@ -30,11 +30,6 @@ const Layout = ({ children }: LayoutProps) => {
       return;
     }
 
-    if (!inputText) {
-      setError('Você precisa digitar o nome do herói em inglês');
-      return;
-    }
-
     searchHero(inputText);
   };
 
