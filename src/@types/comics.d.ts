@@ -22,6 +22,8 @@ type ComicProps = {
 
 type ComicsDataProps = {
   count: number;
+  limit: number;
+  total: number;
   results: ComicProps[];
 };
 

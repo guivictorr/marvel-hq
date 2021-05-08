@@ -16,7 +16,7 @@ const Input = ({ btnAction, value, onChange, onKeyPress }: InputProps) => {
         onKeyPress={onKeyPress}
       />
       <button onClick={btnAction}>
-        <img src="search.svg" alt="Procurar" />
+        <img src="/search.svg" alt="Procurar" />
       </button>
     </Container>
   );

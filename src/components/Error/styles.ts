@@ -6,7 +6,7 @@ type ErrorProps = {
 
 const Error = styled.p<ErrorProps>`
   margin-top: 10px;
-  ${({ theme, visible }) => css`
+  ${({ theme, visible = true }) => css`
     color: ${theme.colors.danger};
     font-size: ${theme.fontSizes.medium16};
     font-weight: 600;
