@@ -22,9 +22,6 @@ const Map = () => {
   const [viewport, setViewport] = useState({
     latitude: -11,
     longitude: -59,
-    width: '100%',
-    height: 280,
-    zoom: 3,
   });
 
   const handleMapClick = (event: MapEvent) => {
@@ -32,14 +29,18 @@ const Map = () => {
     setMarkerPosition({ markerLat: lat, markerLong: long });
   };
 
+  const successHandler = (position: GeolocationPosition) => {
+    const { latitude, longitude } = position.coords;
+    setViewport({ latitude, longitude });
+  };
+
+  const errorHandler = (error: GeolocationPositionError) => {
+    console.error(error.message);
+  };
+
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((pos: GeolocationPosition) => {
-        const { latitude, longitude } = pos.coords;
-        setViewport({ ...viewport, latitude, longitude, zoom: 13 });
-      });
-    }
-  }, [viewport]);
+    navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
+  }, []);
 
   return (
     <ReactMapGL
@@ -51,6 +52,8 @@ const Map = () => {
       }}
       onClick={handleMapClick}
       width="100%"
+      height={280}
+      zoom={13}
     >
       <Marker
         latitude={markerPosition.markerLat}

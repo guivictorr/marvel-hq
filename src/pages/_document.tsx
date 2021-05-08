@@ -42,6 +42,11 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
             rel="stylesheet"
           />
+          <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+          <link
+            href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css"
+            rel="stylesheet"
+          />
           <link rel="shortcut icon" href="favicon.png" type="image/png" />
         </Head>
         <body>
