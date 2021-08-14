@@ -10,7 +10,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "next": "10.0.9",
+    "next": "11.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-map-gl": "^6.1.12",
